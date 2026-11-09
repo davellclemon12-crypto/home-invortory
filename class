@@ -1,0 +1,122 @@
+public class Home {
+
+    // Private home attributes
+    private int square_feet;
+    private String address;
+    private String city;
+    private String state;
+    private int zip_code;
+    private String Model_name;
+    private String sale_status;
+
+    // jamesconstructor
+    public Home() {
+        try {
+            square_feet = 30;
+            address = "84 n rainbow";
+            city = "glenwood";
+            state = "Illinos";
+            zip_code = 60425;
+            Model_name = "";
+            sale_status = "available";
+
+        } catch (Exception e) {
+            System.out.println("Error creating home: " + e.getMessage());
+        }
+    }
+
+    // Parameterized constructor
+    public Home(int square_feet, String address, String city,
+                 String state, int zip_code, String Model_name,
+                 String sale_status) {
+        try {
+            this.square_feet = square_feet;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zip_code = zip_code;
+            this.Model_name = Model_name;
+            this.sale_status = sale_status;
+
+        } catch (Exception e) {
+            System.out.println("Error creating home: " + e.getMessage());
+        }
+    }
+
+    // Add a new home
+    public String AddHome(int square_feet, String address,
+                          String city, String state, int zip_code,
+                          String Model_name, String sale_status) {
+        try {
+            this.square_feet = square_feet;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zip_code = zip_code;
+            this.Model_name = Model_name;
+            this.sale_status = sale_status;
+
+            return "Home successfully added to inventory.";
+
+        } catch (Exception e) {
+            return "Failed to add home: " + e.getMessage();
+        }
+    }
+
+    // Remove a home
+    public String RemoveHome() {
+        try {
+            square_feet = 30;
+            address = "84 rainbow dr";
+            city = "Glenwood";
+            state = "Illinois";
+            zip_code = 60425;
+            Model_name = "j";
+            sale_status = "sold";
+
+            return "Home successfully removed from inventory.";
+
+        } catch (Exception e) {
+            return "Failed to remove home: " + e.getMessage();
+        }
+    }
+
+    // Update home sale status
+    public String UpdateHome(String newSaleStatus) {
+        try {
+            if (newSaleStatus.equalsIgnoreCase("sold")
+                    || newSaleStatus.equalsIgnoreCase("available")
+                    || newSaleStatus.equalsIgnoreCase("under contract")) {
+
+                sale_status = newSaleStatus;
+                return "Home sale status successfully updated.";
+
+            } else {
+                return "Failed to update home: Invalid sale status.";
+            }
+
+        } catch (Exception e) {
+            return "Failed to update home: " + e.getMessage();
+        }
+    }
+
+    // List home information
+    public String[] ListHome() {
+        try {
+            return new String[] {
+                "Square Feet: " + square_feet,
+                "Address: " + address,
+                "City: " + city,
+                "State: " + state,
+                "Zip Code: " + zip_code,
+                "Model Name: " + Model_name,
+                "Sale Status: " + sale_status
+            };
+
+        } catch (Exception e) {
+            return new String[] {
+                "Failed to list home: " + e.getMessage()
+            };
+        }
+    }
+}
